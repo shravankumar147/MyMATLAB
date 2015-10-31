@@ -23,6 +23,7 @@ switch n
        disp('1. set recoring time')
        disp('2. save data ')
        disp('3. plot data')
+       disp('4.ocr');
        r = input('Enter a number: ');
        switch r
             case 1
@@ -67,6 +68,10 @@ switch n
         textIn=input('type your text here I will read it for you:','s');
         ha = actxserver('SAPI.SpVoice');
         invoke(ha,'speak',textIn);
+    case 4
+        I = uigetimagefile();
+        I = imread(I);
+        text = ocr(I);
     otherwise 
         invoke(ha,'speak',thank);
 end
